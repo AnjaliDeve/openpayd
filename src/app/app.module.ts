@@ -14,13 +14,18 @@ import { RelativeTimePipe } from "./core/helpers/pipes/relative-time/relative-ti
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DateAgoPipe } from './core/helpers/pipes/date-ago.pipe'
+import { MatIconModule } from "@angular/material/icon";
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
     AppComponent,
     LaunchListComponent,
     LaunchDetailsComponent,
-    RelativeTimePipe
+    RelativeTimePipe,
+    DateAgoPipe
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,10 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
     MatCardModule,
     StoreModule.forRoot(launchReducers),
     EffectsModule.forRoot(launchEffects),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    MatProgressSpinnerModule,
+    MatIconModule,
+    NgxGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
